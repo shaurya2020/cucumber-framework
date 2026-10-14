@@ -8,6 +8,4 @@ public class RunnerTest {
 	public class TestRunner extends AbstractTestNGCucumberTests {
 		
 	}
-	
-
 }
