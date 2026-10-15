@@ -16,22 +16,13 @@ public class CartSteps {
 
 	WebDriver driver;
 
-	@Given("user is on the SauceDemo login page")
-	public void user_is_on_login_page() {
+	@Given("user should login SauceDemo page")
+	public void user_should_login_SauceDemo_page() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.saucedemo.com/");
-	}
-
-	@When("user enters valid username and password")
-	public void enter_valid_credentials() {
 		driver.findElement(By.id("user-name")).sendKeys("standard_user");
-
 		driver.findElement(By.id("password")).sendKeys("secret_sauce");
-	}
-
-	@When("user clicks on the login button")
-	public void click_login_button() {
 		driver.findElement(By.id("login-button")).click();
 	}
 
@@ -58,14 +49,14 @@ public class CartSteps {
 			}
 		}
 
-//		Assert.assertTrue("Product not found: " + productName, productFound);
+		Assert.assertTrue(productFound, "Product not found: " + productName);
 	}
 
 	@Then("the cart badge should display {string}")
 	public void verify_cart_badge(String expectedCount) {
 		String actualCount = driver.findElement(By.className("shopping_cart_badge")).getText();
 
-//		Assert.assertEquals(expectedCount, actualCount);
+		Assert.assertEquals(expectedCount, actualCount);
 	}
 
 	@Then("the shopping cart should contain {string}")

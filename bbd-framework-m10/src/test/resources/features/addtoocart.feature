@@ -1,9 +1,7 @@
 Feature: Add Product to Cart
 
 Background:
-    Given user is on the SauceDemo login page
-    When user enters valid username and password
-    And user clicks on the login button
+    Given user should login SauceDemo page
     Then user should be redirected to the products page
 
   Scenario: Add a single product to the cart
